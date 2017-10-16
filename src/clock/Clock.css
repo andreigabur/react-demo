@@ -1,0 +1,11 @@
+.Clock {
+	display: inline-block;
+	width: 300px;
+	margin: 10px;
+	box-shadow: 0 0 2px gray;
+	padding: 20px;
+}
+
+.Clock span {
+	color: lightseagreen;
+}
