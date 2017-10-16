@@ -22,6 +22,6 @@
 	background-color: lightcyan;
 }
 
-.Table table tr:not(:first-child):hover {
+.Table table tbody tr:hover {
 	background-color: lightseagreen;
 }
