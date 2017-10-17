@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import './Clock.css';
 
 class Clock extends Component {
@@ -24,7 +25,7 @@ class Clock extends Component {
 	/**
 	 * Custom functions
 	 */
-	tick() {
+	tick = () => {
 		this.setState({
 			time: new Date().toLocaleTimeString(),
 		})

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import './Table.css';
 
 class Table extends Component {
@@ -26,7 +27,7 @@ class Table extends Component {
 			noDataMessage = <div>No data for this table</div>
 		}
 
-		return(
+		return (
 			<div className="Table">
 				
 				{ (noDataMessage !== "") ? (

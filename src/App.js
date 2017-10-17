@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Clock from './clock/Clock';
 import Table from './table/Table';
 import Chart from './chart/Chart';
+import Paselect from './paselect/Paselect';
+
 import logo from './logo.svg';
 import './App.css';
 
@@ -74,7 +76,18 @@ class App extends Component {
 				name: 'Jane',
 				data: [1, 3, 4, 3, 3, 5, 4]
 			}]
-		}
+		},
+		options: [
+			{
+				value: 1,
+				label: 'Cip'
+			},
+			{	
+				value: 2,
+				label: 'Cheng'
+			}
+		],
+		value: 1
 	}
 
 	render() {
@@ -85,8 +98,9 @@ class App extends Component {
 					<h1 className="App-title">Welcome to React</h1>
 				</header>
 				<Clock />
-				<Table tableData={this.state.tableData} />
 				<Chart highchartsOptions={this.state.highchartsOptions} />
+				<Paselect options={this.state.options} value={this.state.value} />
+				<Table tableData={this.state.tableData} />
 			</div>
 		);
 	}

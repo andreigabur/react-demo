@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Highcharts from 'highcharts';
+
 import './Chart.css';
 
 class Chart extends Component {
@@ -22,7 +23,7 @@ class Chart extends Component {
 	 * Render the component
 	 */
 	render() {
-		return(
+		return (
 			<div className="chart">
 				<div id="container"></div>
 			</div>
