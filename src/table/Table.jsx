@@ -10,7 +10,7 @@ class Table extends Component {
 	state = {
 		tableData: (this.props.tableData) ? this.props.tableData : [],
 	}
-
+	
 	renderRow(row, index) {
 		return (
 			<tr key={index}>
@@ -21,37 +21,39 @@ class Table extends Component {
 		);
 	}
 
+	renderHead(row) {
+		return (
+			<tr>
+				{Object.keys(row).map((key) => 
+					<th key={key}>{key}</th>
+				)}
+			</tr>
+		)
+	}
+
 	/**
 	 * Render the component
 	 */
 	render() {
 		let noDataMessage = "";
-		let tableHead;
-		if (this.state.tableData.length > 0) {
-			tableHead = <tr>
-				{Object.keys(this.props.tableData[0]).map((key) => 
-					<th key={key}>{key}</th>
-				)}
-			</tr>
-		} else {
+		if (!(this.state.tableData.length > 0))
 			noDataMessage = <div>No data for this table</div>
-		}
 
 		return (
 			<div className="Table">
 				
-				{ (noDataMessage !== "") ? (
+				{ (noDataMessage !== "") ?
 					noDataMessage
-				) : (
+				:
 					<table>
 						<thead>
-							{tableHead}
+							{this.renderHead(this.state.tableData[0])}
 						</thead>
 						<tbody>
 							{this.state.tableData.map(this.renderRow, this)}
 						</tbody>
 					</table>
-				)}
+				}
 			</div>
 		)
 	}
