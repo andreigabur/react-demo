@@ -6,3 +6,13 @@
 	padding: 20px;
 	text-align: left;
 }
+
+.Paselect label {
+	color: teal;
+}
+
+.Paselect .default-select {
+	display: block;
+	width: 100%;
+	margin-bottom: 10px;
+}

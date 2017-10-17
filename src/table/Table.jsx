@@ -11,6 +11,16 @@ class Table extends Component {
 		tableData: (this.props.tableData) ? this.props.tableData : [],
 	}
 
+	renderRow(row, index) {
+		return (
+			<tr key={index}>
+				{Object.keys(row).map((key) => 
+					<td key={row[key]}>{row[key]}</td>
+				)}
+			</tr>
+		);
+	}
+
 	/**
 	 * Render the component
 	 */
@@ -38,12 +48,7 @@ class Table extends Component {
 							{tableHead}
 						</thead>
 						<tbody>
-							{this.state.tableData.map((row, index) => 
-								<tr key={index}>
-									<td>{row.name}</td>
-									<td>{row.location}</td>
-								</tr>
-							)}
+							{this.state.tableData.map(this.renderRow, this)}
 						</tbody>
 					</table>
 				)}

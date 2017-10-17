@@ -12,11 +12,13 @@ class App extends Component {
 	state = {
 		tableData: [
 			{
-				name: 'Cip MOCANU',
+				name: 'Cip',
+				lastName: 'MOCANU',
 				location: 'Office',
 			},
 			{
-				name: 'Di CHENG',
+				name: 'Di',
+				lastName: 'MOCANU',
 				location: 'Desk',
 			},
 		],
@@ -87,7 +89,7 @@ class App extends Component {
 				label: 'Cheng'
 			}
 		],
-		value: 1
+		value: 2
 	}
 
 	render() {
