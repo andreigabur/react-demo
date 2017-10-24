@@ -1,8 +1,6 @@
 .Paselect {
-	display: inline-block;
-	width: 300px;
-	margin: 10px;
 	box-shadow: 0 1px 3px gray;
+	margin: 10px;
 	padding: 20px;
 	text-align: left;
 }

@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
-import Clock from './clock/Clock';
-import Table from './table/Table';
-import Chart from './chart/Chart';
-import Paselect from './paselect/Paselect';
+import Clock from './section1/clock/Clock';
+import Table from './section1/table/Table';
+import Chart from './section1/chart/Chart';
+import Paselect from './section1/paselect/Paselect';
+import Library from './library/Library';
 
 import logo from './logo.svg';
+import 'bulma/css/bulma.css';
 import './App.css';
 
 class App extends Component {
+
+	constructor(props) {
+		super(props);
+		this.changeSection = this.changeSection.bind(this);
+	}
 
 	state = {
 		tableData: [
@@ -84,25 +91,65 @@ class App extends Component {
 				value: 1,
 				label: 'Cip'
 			},
-			{	
+			{
 				value: 2,
 				label: 'Cheng'
 			}
 		],
-		value: 2
+		value: 2,
+		section: 1
 	}
 
+	changeSection(value) {
+		this.setState({
+			section: value
+		});
+	};
+
 	render() {
+
 		return (
 			<div className="App">
 				<header className="App-header">
 					<img src={logo} className="App-logo" alt="logo" />
 					<h1 className="App-title">Welcome to React</h1>
 				</header>
-				<Clock />
-				<Chart highchartsOptions={this.state.highchartsOptions} />
-				<Paselect options={this.state.options} value={this.state.value} />
-				<Table tableData={this.state.tableData} />
+				<div className="tabs">
+					<ul>
+						<li className={this.state.section===1?'is-active':''}
+							onClick={() => this.changeSection(1)}
+							>
+							<a>Section 1</a>
+						</li>
+						<li className={this.state.section===2?'is-active':''}
+							onClick={() => this.changeSection(2)}
+							>
+							<a>Section 2</a>
+						</li>
+					</ul>
+				</div>
+				{(this.state.section === 1)?
+					<div>
+						<div className="columns is-desktop">
+							<div className="column is-offset-3 is-6">
+								<Clock />
+							</div>
+						</div>
+						<div>
+							<Chart highchartsOptions={this.state.highchartsOptions} />
+						</div>
+						<div className="columns is-desktop">
+							<div className="column is-4">
+								<Paselect options={this.state.options} value={this.state.value} />
+							</div><div className="column is-8">
+								<Table tableData={this.state.tableData} />
+							</div>
+						</div>
+					</div>
+					: (this.state.section === 2) ?
+						<Library />
+					: ''
+				}
 			</div>
 		);
 	}
