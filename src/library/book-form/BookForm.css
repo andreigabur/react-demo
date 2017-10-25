@@ -1,0 +1,9 @@
+.book-form {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.book-form .book-title {
+	color: turquoise;
+	padding-left: 5px;
+}

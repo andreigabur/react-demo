@@ -3,10 +3,11 @@ import Clock from './section1/clock/Clock';
 import Table from './section1/table/Table';
 import Chart from './section1/chart/Chart';
 import Paselect from './section1/paselect/Paselect';
-import Library from './library/Library';
+import Library from './library/';
 
 import logo from './logo.svg';
 import 'bulma/css/bulma.css';
+import 'material-design-icons/iconfont/material-icons.css';
 import './App.css';
 
 class App extends Component {
@@ -97,7 +98,7 @@ class App extends Component {
 			}
 		],
 		value: 2,
-		section: 1
+		section: 2
 	}
 
 	changeSection(value) {

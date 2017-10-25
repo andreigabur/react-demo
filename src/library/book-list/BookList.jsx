@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import Book from '../book/Book.jsx';
 import './BookList.css';
 
 class BookList extends Component {
 
-	state = {}
+	constructor(...args) {
+		super(...args);
+		this.handleAdd = this.handleAdd.bind(this);
+	}
+
+	handleAdd() {
+		this.props.setEdit(true);
+		this.props.selectBook({});
+	}
 
 	render() {
 		return (
@@ -16,25 +24,23 @@ class BookList extends Component {
 				</header>
 				<div className="card-content">
 					<ul>
-						{this.props.books.map((book) => 
-							<li><b>{book.title}</b> by <i>{book.author}</i> on {book.year}</li>
+						{this.props.books.map((book, index) => 
+							<li key={index}>
+								<Book 
+									book={book}
+									selectBook={this.props.selectBook}
+									setEdit={this.props.setEdit}
+									/>
+							</li>
 						)}
 					</ul>
 				</div>
+				<footer className="card-footer">
+					<a className="card-footer-item" onClick={this.handleAdd}>Add a new book</a>
+				</footer>
 			</div>
 		)
 	}
 }
 
-const mapStateToProps = (state) => {
-	return {
-		books: state.books
-	};
-};
-
-const mapDispatchToProps = (dispatch) => {
-	return {
-	};
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(BookList);
+export default BookList;
