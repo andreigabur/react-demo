@@ -21,9 +21,21 @@ const defaultState = {
 			},
 			{
 				id: 3,
-				title: 'Well...',
+				title: 'Well... is Now',
 				author: 'Marta',
 				year: 2000
+			},
+			{
+				id: 4,
+				title: 'To Timisoara',
+				author: 'Silvia',
+				year: 2100
+			},
+			{
+				id: 5,
+				title: 'Felling for redux',
+				author: 'Lidhvija',
+				year: '1900'
 			}
 		],
 		edit: false
