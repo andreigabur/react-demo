@@ -34,6 +34,13 @@ export const setEdit = (edit) => {
 	}
 }
 
+export const setChart = (chart) => {
+	return {
+		type: 'SET_CHART',
+		chart: chart
+	}
+}
+
 export const deleteBook = (id) => {
 	return {
 		type: 'DELETE_BOOK',

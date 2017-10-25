@@ -50,9 +50,9 @@ class BookForm extends Component {
 	handleSubmit(event) {
 		event.preventDefault();
 		if (this.state.id === '') {
-			this.props.addBook({ title: this.state.title, author: this.state.author, year: this.state.year })
+			this.props.addBook({ title: this.state.title, author: this.state.author, year: parseInt(this.state.year, 10) })
 		} else {
-			this.props.editBook({ id: this.state.id, title: this.state.title, author: this.state.author, year: this.state.year })
+			this.props.editBook({ id: this.state.id, title: this.state.title, author: this.state.author, year: parseInt(this.state.year, 10) })
 		}
 		this.props.setEdit(false)
 	}

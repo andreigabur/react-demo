@@ -1,0 +1,7 @@
+.library .head {
+	margin-left: 10px;
+}
+
+.library .column>div {
+	margin: 10px;
+}

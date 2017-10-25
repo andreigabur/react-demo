@@ -47,6 +47,11 @@ const libraryReducer = ((state = [], action) => {
 				...state,
 				edit: action.edit
 			}
+		case 'SET_CHART':
+			return {
+				...state,
+				chart: action.chart
+			}
 		default:
 			return state
 	}

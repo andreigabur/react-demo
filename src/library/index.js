@@ -11,13 +11,13 @@ const defaultState = {
 				id: 1,
 				title: 'Best book',
 				author: 'Andrei',
-				year: 1099
+				year: 2000
 			},
 			{
 				id: 2,
 				title: 'Let\'s do the react',
 				author: 'Cip',
-				year: 2018
+				year: 2010
 			},
 			{
 				id: 3,
@@ -29,16 +29,17 @@ const defaultState = {
 				id: 4,
 				title: 'To Timisoara',
 				author: 'Silvia',
-				year: 2100
+				year: 2010
 			},
 			{
 				id: 5,
 				title: 'Felling for redux',
 				author: 'Lidhvija',
-				year: '1900'
+				year: 1990
 			}
 		],
-		edit: false
+		edit: false,
+		chart: false
 	};
 
 let store = createStore(libraryRreducer,
