@@ -7,11 +7,17 @@ class BookList extends Component {
 	constructor(...args) {
 		super(...args);
 		this.handleAdd = this.handleAdd.bind(this);
+		this.handleSelectBook = this.handleSelectBook.bind(this);
 	}
 
 	handleAdd() {
 		this.props.setEdit(true);
 		this.props.selectBook({});
+	}
+
+	handleSelectBook(book) {
+		this.props.selectBook(book);
+		this.props.setEdit(true);
 	}
 
 	render() {
@@ -24,12 +30,11 @@ class BookList extends Component {
 				</header>
 				<div className="card-content">
 					<ul>
-						{this.props.books.map((book, index) => 
-							<li key={index}>
+						{this.props.books.map((book) => 
+							<li key={book.id}>
 								<Book 
 									book={book}
-									selectBook={this.props.selectBook}
-									setEdit={this.props.setEdit}
+									selectBook={this.handleSelectBook}
 									/>
 							</li>
 						)}

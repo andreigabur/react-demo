@@ -7,7 +7,7 @@ import Library from './library/';
 
 import logo from './logo.svg';
 import 'bulma/css/bulma.css';
-import 'material-design-icons/iconfont/material-icons.css';
+import 'font-awesome/css/font-awesome.css';
 import './App.css';
 
 class App extends Component {

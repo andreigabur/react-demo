@@ -11,7 +11,19 @@ const defaultState = {
 				id: 1,
 				title: 'Best book',
 				author: 'Andrei',
-				year: 2017
+				year: 1099
+			},
+			{
+				id: 2,
+				title: 'Let\'s do the react',
+				author: 'Cip',
+				year: 2018
+			},
+			{
+				id: 3,
+				title: 'Well...',
+				author: 'Marta',
+				year: 2000
 			}
 		],
 		edit: false

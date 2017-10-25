@@ -1,4 +1,4 @@
-let nextId = 1;
+let nextId = 3;
 
 export const addBook = (book) => {
 	return {
@@ -31,5 +31,12 @@ export const setEdit = (edit) => {
 	return {
 		type: 'SET_EDIT',
 		edit: edit
+	}
+}
+
+export const deleteBook = (id) => {
+	return {
+		type: 'DELETE_BOOK',
+		id: id
 	}
 }

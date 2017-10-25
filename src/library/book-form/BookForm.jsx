@@ -59,9 +59,18 @@ class BookForm extends Component {
 
 	renderButton() {
 		if (this.state.id === '')
-			return <input className="button is-link" type="submit" value="Add" />
+			return (
+				<div className="control">
+					<input className="button is-link" type="submit" value="Add" />
+				</div>
+			)
 		else
-			return <input className="button is-link" type="submit" value="Edit" />
+			return (
+				<div className="control">
+					<input className="button is-link" type="submit" value="Edit" /> 
+					<a className="button is-danger is-pulled-right" onClick={() => this.props.deleteBook(this.state.id)}>Delete</a>
+				</div>
+			)
 	}
 
 	renderHead() {
@@ -77,8 +86,8 @@ class BookForm extends Component {
 				<header className="card-header">
 					{this.renderHead()}
 					<a className="card-header-icon" aria-label="more options" onClick={() => this.props.setEdit(false)}>
-						<span className="icon">
-							<i class="material-icons">close</i>
+						<span className="icon ">
+							<i className="fa fa-lg fa-times"></i>
 						</span>
 					</a>
 				</header>
@@ -120,9 +129,7 @@ class BookForm extends Component {
 									onChange={this.handleInputChange} />
 							</div>
 						</div>
-						<div className="control">
-							{this.renderButton()}
-						</div>
+						{this.renderButton()}
 					</form>
 				</div>
 			</div>

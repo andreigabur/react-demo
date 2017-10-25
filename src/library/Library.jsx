@@ -1,14 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addBook, editBook, selectBook, setEdit } from './library.actions.js';
+import { addBook, deleteBook, editBook, selectBook, setEdit } from './library.actions.js';
 import BookForm from './book-form/BookForm.jsx';
 import BookList from './book-list/BookList.jsx';
 
 class Library extends Component {
 
+	constructor(...args) {
+		super(...args);
+		this.deleteBook = this.deleteBook.bind(this);
+	}
+
+	deleteBook(id) {
+		this.props.deleteBook(id);
+		this.props.setEdit(false);
+	}
+
 	getListClasses() {
 		const classes = ['column', 'is-desktop'];
-		console.log(this.props.edit);
 		if (this.props.edit)
 			classes.push('is-6')
 		else 
@@ -36,6 +45,7 @@ class Library extends Component {
 							editBook={this.props.editBook} 
 							addBook={this.props.addBook}
 							setEdit={this.props.setEdit}
+							deleteBook={this.deleteBook}
 							/>
 					</div>
 					:
@@ -57,8 +67,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		editBook: (book) => dispatch(editBook(book)),
 		addBook: (book) => dispatch(addBook(book)),
+		deleteBook: (id) => dispatch(deleteBook(id)),
+		editBook: (book) => dispatch(editBook(book)),
 		selectBook: (book) => dispatch(selectBook(book)),
 		setEdit: (edit) => dispatch(setEdit(edit))
 	};
